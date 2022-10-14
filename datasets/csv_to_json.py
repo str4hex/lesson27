@@ -13,7 +13,7 @@ for files_to_json in file_name:
     with open(files_to_json, encoding='utf-8') as file_csv:
         reader = csv.DictReader(file_csv)
         rows = list(reader)
+    file = "".join(files_to_json.split('.')[0] + '.json')
 
-    with open("".join(files_to_json.split('.')[1] + '.json'), 'w', encoding='utf-8') as file_json:
-        print(files_to_json.split(".")[:1])
-        json.dump(rows, file_json, indent=4 ,ensure_ascii=False)
+    with open(file, 'w', encoding='utf-8') as file_json:
+        json.dump(rows, file_json, indent=4, ensure_ascii=False)
